@@ -12,7 +12,7 @@ JWT_ALGO = conf["ALGO"]
 def encodeJwt(email:str):
     data = {
         "email":email,
-        "expiretime": time.time() + 1200 
+        "expiretime": time.time() + 1200 #(1200/60)= 20minutes
     }
     authorize_token = jwt.encode(data,key=JWT_KEY,algorithm=JWT_ALGO)
     return {"token-generated":authorize_token}
