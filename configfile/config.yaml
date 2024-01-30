@@ -1,9 +1,0 @@
-
-ENV:
-  MONGOENV : 'yourpath'
-  JWTENV : 'yourpath'
-#algo for jwt
-ALGO : HS256
-COLLECTIONS:  
-  DATACOLLECTION : 'collection name for post content'
-  USERCREDENTIALSCOLLECTION : 'collection name for user credentials data'
