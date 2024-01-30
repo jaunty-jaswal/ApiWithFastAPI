@@ -1,6 +1,6 @@
 #!/bin/bash
 <<comment
-to run the project, just write this in terminal:- bash Entrypoint.sh
+bash Entrypoint.sh
 comment
 
 python3 -m venv .venv
