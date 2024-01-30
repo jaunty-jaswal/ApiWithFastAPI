@@ -1,4 +1,4 @@
-#!/home/shantanujaswal/Github/ApiWithFastAPI/.venv/bin/python3
+#!/home/theefault/API/ApiWithFastAPI/.venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
