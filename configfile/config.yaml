@@ -1,0 +1,8 @@
+#for mongodb env
+Envpath : 'yourpath'
+#for jwt key
+ENV : 'yourpath'
+#algo for jwt
+ALGO : HS256
+DATACOLLECTION : 'collection name for post content'
+USERCREDENTIALSCOLLECTION : 'collection name for user credentials data'
