@@ -8,7 +8,7 @@ conf = setpath.pathset().openyaml()
 load_dotenv(conf["ENV"])
 JWT_KEY = os.getenv("KEY")
 JWT_ALGO = conf["ALGO"]
-#encoding...
+#encoding with jwt
 def encodeJwt(email:str):
     data = {
         "email":email,
@@ -17,7 +17,8 @@ def encodeJwt(email:str):
     authorize_token = jwt.encode(data,key=JWT_KEY,algorithm=JWT_ALGO)
     return {"token-generated":authorize_token}
 
-#decoding....
+#decoding the generated token
+#time.time() means the current time
 def decodeJwt(token:str):
     decoded_token  = jwt.decode(token,key=JWT_KEY,algorithms=[JWT_ALGO])
     try: 
