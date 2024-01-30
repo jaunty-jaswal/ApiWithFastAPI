@@ -1,9 +1,11 @@
 #!/bin/bash
 <<comment
-first run the generatekey file to generate a random uuid in .env file
-after that provide the paths of env files in config.yaml
-lastly provide your connection string in mn.env
+to run the project, just write this in terminal:- bash Entrypoint.sh
 comment
 
-python3 /yourpath/generatekey.py
-uvicorn main:app --reload
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+#add your path here:-
+python3 starter.py
+python3 main.py
