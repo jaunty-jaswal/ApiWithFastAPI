@@ -3,5 +3,5 @@ COLLECTIONS:
   DATACOLLECTION: userdata
   USERCREDENTIALSCOLLECTION: usercreds
 ENV:
-  JWTENV: a:\github\ApiWithFastAPI\userauth\.env
-  MONGOENV: a:\github\ApiWithFastAPI\userauth\mn.env
+  JWTENV: /home/theefault/API/ApiWithFastAPI/userauth/.env
+  MONGOENV: /home/theefault/API/ApiWithFastAPI/userauth/mn.env
