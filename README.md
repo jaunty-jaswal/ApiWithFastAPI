@@ -10,4 +10,6 @@ runs on port 8000
 <li><ul><h4>firtly set the required paths in <b>configfile/config.yaml</b></h4><li>Envpath</li><li>ENV</li><li>and collection names</li></ul></li>
 <li><h4>finally in <b>mn.env</b> enter the mongo client url</h4</li>
 </ol>
+<h1>You need a linux system to run the program or wsl configured for windows since it requires bash command to run</h1>
 <h1>To run the app, write <i>bash Entrypoint.sh</i> in the terminal, and copy the url and paste into browser</h1>
+<h3>direct support for windows will be provided in future</h3>
