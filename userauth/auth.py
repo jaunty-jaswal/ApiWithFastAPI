@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from database.pathsetter import setpath
 
 conf = setpath.pathset().openyaml()
-load_dotenv(conf["ENV"])
+load_dotenv(conf["ENV"]["JWTENV"])
 JWT_KEY = os.getenv("KEY")
 JWT_ALGO = conf["ALGO"]
 #encoding with jwt

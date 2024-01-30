@@ -5,14 +5,14 @@ from dotenv import load_dotenv
 from database.pathsetter import setpath
 
 conf = setpath.pathset().openyaml()
-load_dotenv(conf["Envpath"])
+load_dotenv(conf["ENV"]["MONGOENV"])
 MONGO_SERVER =os.getenv("MONGO_ID")
 
 
 client = AsyncIOMotorClient(MONGO_SERVER)
 database = client.jwtData
-collection1 = database.get_collection(conf['DATACOLLECTION'])
-collection2 = database.get_collection(conf['USERCREDENTIALSCOLLECTION'])
+collection1 = database.get_collection(conf["COLLECTIONS"]['DATACOLLECTION'])
+collection2 = database.get_collection(conf["COLLECTIONS"]['USERCREDENTIALSCOLLECTION'])
 
 
 def parser(content):
