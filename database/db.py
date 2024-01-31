@@ -3,6 +3,7 @@ from bson.objectid import ObjectId
 import os
 from dotenv import load_dotenv
 from database.pathsetter import setpath
+from fastapi import HTTPException,status
 
 conf = setpath.pathset().openyaml()
 load_dotenv(conf["ENV"]["MONGOENV"])
@@ -29,11 +30,11 @@ def userparser(user):
 
 async def add_content(content):
     await collection1.insert_one(content)
-    return {"OK"}
+    return {"status":HTTPException(status_code=status.HTTP_200_OK)}
 
 async def add_user(user):
     await collection2.insert_one(user)
-    return {"OK"}
+    return {"status":HTTPException(status_code=status.HTTP_200_OK)}
 
 async def read_content():
     array=[]

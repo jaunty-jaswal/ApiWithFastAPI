@@ -4,7 +4,7 @@ from routes.route import router
 
 app = FastAPI()
 app.include_router(router)
-#this is our homepage
+
 @app.get('/')
 async def homePage():
     return {"homepage"}

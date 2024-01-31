@@ -1,4 +1,4 @@
-from fastapi import APIRouter,Body,Depends
+from fastapi import APIRouter,Body,Depends,HTTPException,status
 from schema.userSchema import (
     PostingSchema,
     SignupSchema,
@@ -18,21 +18,18 @@ router = APIRouter()
 async def checkuser(user:LoginSchema):
     async for i in collection2.find():
         if(user.email == i["email"] and user.password == i["password"]):
-            
             return True
     return False
-
-            
+       
 @router.get('/display')
 async def poster():
     return await read_content()
-
 
 @router.post('/post',dependencies=[Depends(JwtHandler())])
 async def add_post(ourpost:PostingSchema):
     encoded = jsonable_encoder(ourpost)
     await add_content(encoded)
-    return {"OK","Post Added"}
+    return {"Status":HTTPException(status_code=status.HTTP_201_CREATED)}
 
 @router.post('/signup')
 async def signup(ob:SignupSchema=Body(...)):
@@ -45,7 +42,7 @@ async def login(ob:LoginSchema=Body(...)):
     if await checkuser(ob):
         return encodeJwt(ob.email)
     return {
-        "error":"wrong details"
+        "error":HTTPException(status_code=status.HTTP_404_NOT_FOUND)
     }
 @router.get('/userdetail')
 async def userdetails():
