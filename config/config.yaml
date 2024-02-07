@@ -1,7 +1,8 @@
 ALGO: HS256
 COLLECTIONS:
   DATACOLLECTION: userdata
+  TEXTDATACOLL: textdata
   USERCREDENTIALSCOLLECTION: usercreds
 ENV:
-  JWTENV: /home/theefault/API/ApiWithFastAPI/userauth/.env
-  MONGOENV: /home/theefault/API/ApiWithFastAPI/userauth/mn.env
+  JWTENV: userauth/.env
+  MONGOENV: /home/shantanujaswal/Github/ApiWithFastAPI/userauth/mn.env

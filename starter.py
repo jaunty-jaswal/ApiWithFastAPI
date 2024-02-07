@@ -6,7 +6,7 @@ call = generatekey.run()
 call.generate_uid()
 mongo_path = os.path.abspath(os.path.join(os.path.dirname(__file__),"userauth","mn.env"))
 jwy_path = os.path.join(os.path.dirname(__file__),"userauth",".env")
-collectiondata= ["userdata","usercreds"]
+collectiondata= ["userdata","usercreds","textdata"]
 yamlformat = {
     "ENV":{
         'MONGOENV':mongo_path,
@@ -16,6 +16,7 @@ yamlformat = {
     'COLLECTIONS':{
         "DATACOLLECTION": str(collectiondata[0]),
         "USERCREDENTIALSCOLLECTION": str(collectiondata[1]),
+        "TEXTDATACOLL": str(collectiondata[2])
         
     }
 }
