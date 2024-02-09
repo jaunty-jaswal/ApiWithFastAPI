@@ -5,6 +5,20 @@ bash Entrypoint.sh
 comment
 #if u get error, do this
 #sudo apt install python3.10-venv
+echo "Welcome to this API"
+for i in {0..19};
+do
+    echo -n "#"
+    sleep 0.05
+done;
+echo ""
+echo "---system will install libespeak1---"
+for i in {0..40};
+do 
+    echo -n "#"
+    sleep 0.05
+done;
+echo ""
 sudo apt install libespeak1
 python3 -m venv .venv
 source .venv/bin/activate.csh

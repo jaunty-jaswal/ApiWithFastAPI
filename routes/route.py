@@ -80,7 +80,7 @@ async def userdetails():
         det.append(i["name"])
         mail.append(i["email"])
     return {"usernames":det,"emails":mail}
-@router.post('/text')
+@router.get('/text')
 async def tesseracttext():
     txt = readpdf.return_text()
     id  = readpdf.returnid()
@@ -90,7 +90,7 @@ async def tesseracttext():
     else :
         # print("+---------------------------------",index)
         await textStore(txt,id[index])
-    return {"text:->",txt}
+    return {":",txt}
 @router.get('/dbdata')
 async def dBase():
     return {"Translation->":await dispText()

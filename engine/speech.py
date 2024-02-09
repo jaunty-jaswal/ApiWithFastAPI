@@ -26,8 +26,9 @@ async def usingGoogle2():
 
     if(len(message)==0):
         speech = gTTS(text = "No text Detected",lang = 'en')
-    else:   
+    else: 
         speech = gTTS(text = message,lang = 'en')
+    
     speech.save('temp2.mp3')
     playsound('temp2.mp3')
     os.remove('temp2.mp3')
