@@ -5,7 +5,8 @@ from createpdf import create
 from schema.userSchema import (
     PostingSchema,
     SignupSchema,
-    LoginSchema
+    LoginSchema,
+    MailSchema
 )
 from userauth.auth import encodeJwt
 from userauth.verify import JwtHandler
@@ -21,6 +22,7 @@ import asyncio
 from fastapi.encoders import jsonable_encoder
 from kafka_client import producer,consumer
 from consumer.consume import mainconsumer,caller
+from mail import send_mail
 router = APIRouter()
 
 async def checkuser(user:LoginSchema):
@@ -38,8 +40,8 @@ async def homePage():
 async def poster():
     return await read_content()
 
-@router.post('/post') #,dependencies=[Depends(JwtHandler())]
-async def add_post(ourpost:PostingSchema):
+@router.post('/post',dependencies=[Depends(JwtHandler())]) #,
+async def add_post(ourpost:PostingSchema=Body(...)):
     encoded = jsonable_encoder(ourpost)
     try :
         producer.send_one(encoded)
@@ -104,9 +106,19 @@ async def createpdf():
 
 @router.get('/speech')
 async def speakUsingG():
-    await speech.usingGoogle()
+    try:
+        await speech.usingGoogle()
+        return {"--Speaking--":HTTPException(status_code=status.HTTP_200_OK)}
+    except Exception as e:
+        print(str(e))
+        return {"Error":HTTPException(status_code=status.HTTP_400_BAD_REQUEST)}
     
-
-@router.get('/speech2')
-async def speakUsingG2():
-    await speech.usingGoogle2()
+    
+@router.post('/mail')
+async def mail(ob:MailSchema=Body(...)):
+    try:
+        send_mail.sendMail(ob.password,ob.mailid)
+    except:
+        return {"ERROR":HTTPException(status_code=status.HTTP_404_NOT_FOUND)}
+    return {"OK",HTTPException(status_code=status.HTTP_202_ACCEPTED)}
+    

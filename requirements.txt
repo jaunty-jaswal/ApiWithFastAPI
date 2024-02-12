@@ -58,4 +58,4 @@ numpy
 gTTS
 playsound
 fpdf
-
+secure-smtplib

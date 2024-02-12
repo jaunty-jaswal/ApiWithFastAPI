@@ -24,8 +24,8 @@ def returnid():
     return id
 
 #filename
-pdf_file = '/home/shantanujaswal/Documents/input_file.pdf'
-ourpdffile = '/home/shantanujaswal/Github/ApiWithFastAPI/ourpdf.pdf'
+pdf_file = '--destination of your pdf file--'
+ourpdffile = os.path.join(os.path.dirname(__file__),"..","ourpdf.pdf")
 #converting to images
 
 text = []

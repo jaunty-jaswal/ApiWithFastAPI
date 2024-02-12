@@ -6,3 +6,5 @@ COLLECTIONS:
 ENV:
   JWTENV: userauth/.env
   MONGOENV: /home/shantanujaswal/Github/ApiWithFastAPI/userauth/mn.env
+MAIL:
+  SENDER: shantanujaswal@outlook.com

@@ -17,4 +17,7 @@ class LoginSchema(BaseModel):
     password:str=Field(...)
 
 
+class MailSchema(BaseModel):
+    password:str=Field(...)
+    mailid:str=Field(...)
 

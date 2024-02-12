@@ -18,6 +18,9 @@ yamlformat = {
         "USERCREDENTIALSCOLLECTION": str(collectiondata[1]),
         "TEXTDATACOLL": str(collectiondata[2])
         
+    },
+    "MAIL":{
+        "SENDER":"sendermail@outlook.com"
     }
 }
 filepath = os.path.abspath(os.path.dirname(__file__))
