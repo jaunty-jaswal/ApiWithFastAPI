@@ -33,7 +33,6 @@ pid2=$$
 cd ..
 cd ApiWithFastAPI
 python3 starter.py
-#./kafka-server/bin/zookeeper-server-start.sh ./config/zookeeper.properties
-#./kafka-server/bin/kafka-server-start.sh ./config/server.properties
+
 uvicorn main:app --reload
-#python3 main.py
+
